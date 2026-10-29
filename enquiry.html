@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry / Login | Clarity Health Clinic</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script>
+        // Minimal client-side validation and to simulate navigation
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const pass = document.getElementById('login-password').value.trim();
+            if (!email || !pass) {
+                alert('Please enter both email and password.');
+                return;
+            }
+            // For now simulate successful login and redirect to contact
+            alert('Login successful — redirecting to your enquiries.');
+            window.location.href = 'contact.html';
+        }
+
+        function handleEnquiry(e) {
+            e.preventDefault();
+            const name = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !email || !message) { alert('Please complete name, email and message.'); return; }
+            alert('Thanks — your enquiry has been sent. We will be in touch.');
+            document.getElementById('enquiry-form').reset();
+        }
+    </script>
+</head>
+<body>
+    <header class="site-header fixed-header">
+        <div class="brand">
+            <a href="index.html" class="logo" aria-label="Clarity Health Clinic home">
+                <span class="logo-mark" aria-hidden="true">CH</span>
+                <span class="brand-name">Clarity Health Clinic</span>
+            </a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="about.html">Who we are</a>
+                <a href="service.html">Find care</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="tel:+27215550123" class="header-phone" aria-label="Call Clarity Health Clinic"> 
+                    <span class="phone-emoji">📞</span>
+                    <span class="phone-number">+27 21 555 0123</span>
+                </a>
+                <a href="index.html" class="btn-ghost">Home</a>
+                <a href="contact.html" class="btn-primary">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <section class="hero">
+            <div class="hero-copy animate-fadeUp">
+                <span class="badge">Get in touch</span>
+                <h2>Login or send an enquiry</h2>
+                <p>Access your booking and submit questions to our team securely.</p>
+            </div>
+            <div class="hero-panel">
+                <img src="medicos.webp" alt="Clinic team" class="hero-image" loading="lazy">
+            </div>
+        </section>
+
+        <section class="section-block" style="margin-top:20px; display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+            <div class="form-card">
+                <h3>Login to your account</h3>
+                <p class="muted">Enter your credentials to view appointments and messages.</p>
+                <form onsubmit="handleLogin(event)" class="form" aria-label="Login form">
+                    <div class="form-row">
+                        <label for="login-email">Email</label>
+                        <input id="login-email" type="email" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="login-password">Password</label>
+                        <input id="login-password" type="password" required>
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center; margin-top:12px;">
+                        <button class="btn-primary" type="submit">Login</button>
+                        <a href="#" class="btn-ghost">Forgot password?</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-card">
+                <h3>Send an enquiry</h3>
+                <p class="muted">Have a question? Send us a quick message and we'll respond shortly.</p>
+                <form id="enquiry-form" onsubmit="handleEnquiry(event)" class="form" aria-label="Enquiry form">
+                    <div class="form-row">
+                        <label for="fullname">Full name</label>
+                        <input id="fullname" type="text" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Email address</label>
+                        <input id="email" type="email" required>
+                    </div>
+                        <div class="form-row">
+                            <label for="contact-as">Contacting as</label>
+                            <select id="contact-as" name="contact-as">
+                                <option value="individual">Individual</option>
+                                <option value="organization">Organization</option>
+                            </select>
+                        </div>
+
+                        <div id="org-fields" style="display:none">
+                            <div class="form-row">
+                                <label for="org-name">Organization name</label>
+                                <input id="org-name" type="text">
+                            </div>
+                            <div class="form-row">
+                                <label for="org-type">Organization type</label>
+                                <select id="org-type" name="org-type">
+                                    <option value="npo">NPO / Non-profit</option>
+                                    <option value="business">Business / For-profit</option>
+                                </select>
+                            </div>
+                            <div id="npo-actions" style="display:none; margin-top:8px;">
+                                <label>For NPOs: I'm interested in</label>
+                                <div style="display:flex; gap:12px; align-items:center; margin-top:6px;">
+                                    <label style="display:flex; align-items:center; gap:6px;"><input id="enquire-volunteer" type="checkbox"> Enquire about volunteering</label>
+                                    <label style="display:flex; align-items:center; gap:6px;"><input id="become-sponsor" type="checkbox"> Become a sponsor</label>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="form-row">
+                        <label for="phone">Phone (optional)</label>
+                        <input id="phone" type="tel">
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <div style="margin-top:12px;">
+                        <button class="btn-primary" type="submit">Send enquiry</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Clarity Health Clinic. All rights reserved.</p>
+        <p>Student: Dulce Da Silva | ST10531158 | WEDE5020 POE</p>
+        <div class="trust-row">
+            <div class="trust-stars">★★★★★</div>
+            <div>Trusted since 2015 — 10,000+ patients</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

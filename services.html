@@ -1,0 +1,65 @@
+// --- ANIMATIONS & UI EFFECTS ---
+document.addEventListener("DOMContentLoaded", function() {
+    // Scroll reveal
+    const elementsToAnimate = document.querySelectorAll('.animate-fadeUp, .card, .card-image, .hero-copy, .icon-item, .svg-underline');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, { threshold: 0.12 });
+    
+    elementsToAnimate.forEach(el => observer.observe(el));
+
+    // Button ripple effect
+    function createRipple(e) {
+        const btn = e.currentTarget;
+        const rect = btn.getBoundingClientRect();
+        const circle = document.createElement('span');
+        const size = Math.max(rect.width, rect.height);
+        circle.style.width = circle.style.height = size + 'px';
+        circle.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        circle.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        circle.className = 'ripple';
+        btn.appendChild(circle);
+        window.setTimeout(() => { circle.remove(); }, 600);
+    }
+
+    document.querySelectorAll('.btn-primary, .btn-ghost').forEach(btn => {
+        btn.style.position = btn.style.position || 'relative';
+        btn.style.overflow = 'hidden';
+        btn.addEventListener('click', createRipple);
+    });
+
+    // --- FORM VALIDATION (CONTACT PAGE) ---
+    const contactForm = document.getElementById("contactForm");
+    const errorDiv = document.getElementById("formError");
+
+    if (contactForm) {
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            errorDiv.innerHTML = ""; 
+            errorDiv.style.color = "red"; // Reset color to red for errors
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (name === "" || email === "" || message === "") {
+                errorDiv.innerHTML = "Error: Please fill in all required fields.";
+                return;
+            }
+
+            if (!email.includes("@")) {
+                errorDiv.innerHTML = "Error: Please enter a valid email address.";
+                return;
+            }
+
+            // Success
+            errorDiv.style.color = "green";
+            errorDiv.innerHTML = "Message sent successfully! We will get back to you soon.";
+            contactForm.reset(); 
+        });
+    }
+});

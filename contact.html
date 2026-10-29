@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charet="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Clarity Health Clinic in Claremont, Cape Town. Book an appointment or send us a message.">
+    <meta name="keywords" content="health clinic, Cape Town, Claremont, doctor, appointment">
+
+    <title>Contact | Clarity Health Clinic</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="section-block">
+            <div class="highlight-grid">
+                <h4>Availability</h4>
+                <p>We are open throughout the week and provide practical scheduling support for busy lifestyles.</p>
+            </div>
+        </section>
+
+        <!-- O FORMULÁRIO COMEÇA AQUI -->
+        <section class="section-block">
+            <h3>Send us a Message</h3>
+            <form id="contactForm">
+                <div class="feature">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" style="width: 100%; padding: 8px;">
+                </div>
+                <br>
+                <div class="feature">
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" style="width: 100%; padding: 8px;">
+                </div>
+                <br>
+                <div class="feature">
+                    <label for="messageType">Type of Message:</label><br>
+                    <select id="messageType" name="messageType" style="width: 100%; padding: 8px;">
+                        <option value="general">General Enquiry</option>
+                        <option value="appointment">Appointment Booking</option>
+                    </select>
+                </div>
+                <br>
+                <div class="feature">
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="4" style="width: 100%; padding: 8px;"></textarea>
+                </div>
+                <br>
+                <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer;">Send Message</button>
+                <div id="formError" style="color: red; margin-top: 10px;"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Clarity Health Clinic. All rights reserved.</p>
+        <p>Student: Dulce Da Silva | ST10531158 | WEDE5020 POE</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
