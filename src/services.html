@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Care | Services &amp; Prices | Clarity Health Clinic</title>
+    <meta name="description" content="Search and compare services at Clarity Health Clinic in Claremont, Cape Town: consultations, chronic care, vaccinations and family health with clear prices.">
+    <meta name="keywords" content="clinic services Cape Town, GP consultation price, vaccinations Claremont, chronic care">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://clarity-health-clinic.netlify.app/service.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="extra.css">
+    <link rel="icon" href="clinic-mark.svg" type="image/svg+xml">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="site-header fixed-header">
+        <div class="brand">
+            <a href="index.html" class="logo" aria-label="Clarity Health Clinic home">
+                <span class="logo-mark" aria-hidden="true">CH</span>
+                <span class="brand-name">Clarity Health Clinic</span>
+            </a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="about.html">Who we are</a>
+                <a href="service.html">Find care</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="tel:+27215550123" class="header-phone" aria-label="Call Clarity Health Clinic">
+                    <span class="phone-emoji" aria-hidden="true">📞</span>
+                    <span class="phone-number">+27 21 555 0123</span>
+                </a>
+                <a href="enquiry.html" class="btn-secondary">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell" id="main">
+        <section class="hero page-hero-small">
+            <div class="hero-copy animate-fadeUp animate-onload">
+                <span class="badge">Our services</span>
+                <h1>Find the right care</h1>
+                <p>Search, filter and sort our services, then send an enquiry to get cost and availability.</p>
+            </div>
+            <div class="hero-panel">
+                <img src="public/img/clinic-team-doctors.webp" alt="Clarity Health Clinic team ready to help" class="hero-image" width="600" height="400" loading="lazy">
+            </div>
+        </section>
+
+        <section class="section-block" aria-labelledby="search-title">
+            <h2 id="search-title">Search our services</h2>
+            <div class="toolbar" role="search">
+                <div>
+                    <label for="service-search">Search</label>
+                    <input type="search" id="service-search" placeholder="e.g. vaccination, family, screening">
+                </div>
+                <div>
+                    <label for="service-category">Category</label>
+                    <select id="service-category">
+                        <option value="all">All categories</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="chronic">Chronic care</option>
+                        <option value="prevention">Prevention</option>
+                        <option value="family">Family</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="service-sort">Sort by</label>
+                    <select id="service-sort">
+                        <option value="name-asc">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="price-asc">Price (low to high)</option>
+                        <option value="price-desc">Price (high to low)</option>
+                    </select>
+                </div>
+            </div>
+            <p class="results-count" id="service-count" aria-live="polite"></p>
+            <div class="services-grid" id="services-grid"></div>
+            <noscript><p>Please enable JavaScript to view and search our services.</p></noscript>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <nav class="socials" aria-label="Social media">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+        <p>&copy; 2026 Clarity Health Clinic. All rights reserved.</p>
+        <p>Student: Dulce Da Silva | ST10531158 | WEDE5020 POE</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

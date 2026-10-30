@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Clarity Health Clinic Claremont, Cape Town</title>
+    <meta name="description" content="Contact Clarity Health Clinic in Claremont, Cape Town. Send us a message, call +27 21 555 0123 or book an appointment.">
+    <meta name="keywords" content="contact clinic Cape Town, Claremont clinic phone, book appointment, health clinic address">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://clarity-health-clinic.netlify.app/contact.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="extra.css">
+    <link rel="icon" href="clinic-mark.svg" type="image/svg+xml">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="site-header fixed-header">
+        <div class="brand">
+            <a href="index.html" class="logo" aria-label="Clarity Health Clinic home">
+                <span class="logo-mark" aria-hidden="true">CH</span>
+                <span class="brand-name">Clarity Health Clinic</span>
+            </a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="about.html">Who we are</a>
+                <a href="service.html">Find care</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="tel:+27215550123" class="header-phone" aria-label="Call Clarity Health Clinic">
+                    <span class="phone-emoji" aria-hidden="true">📞</span>
+                    <span class="phone-number">+27 21 555 0123</span>
+                </a>
+                <a href="enquiry.html" class="btn-secondary">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell" id="main">
+        <section class="hero page-hero-small">
+            <div class="hero-copy animate-fadeUp animate-onload">
+                <span class="badge">Contact</span>
+                <h1>We'd love to hear from you</h1>
+                <p>Send us a general message and we will respond promptly.</p>
+            </div>
+            <div class="hero-panel">
+                <img src="/public/img/medicos.webp" alt="Friendly Clarity Health Clinic team" class="hero-image" width="600" height="400" loading="lazy">
+            </div>
+        </section>
+
+        <section class="two-col">
+            <div class="form-card">
+                <h2>Clinic details</h2>
+                <ul class="contact-list">
+                    <li><strong>Address:</strong> Main Road, Claremont, Cape Town, 7708</li>
+                    <li><strong>Phone:</strong> <a href="tel:+27215550123">+27 21 555 0123</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:info@clarityhealthclinic.co.za">info@clarityhealthclinic.co.za</a></li>
+                    <li><strong>Hours:</strong> Mon-Fri 08:00-17:00, Sat 08:00-13:00</li>
+                </ul>
+                <h3 style="margin-top:18px">Availability</h3>
+                <p class="muted">We are open throughout the week and provide practical scheduling support for busy lifestyles.</p>
+            </div>
+
+            <div class="form-card">
+                <h2>Send us a message</h2>
+                <p class="muted">Your message is compiled into an email that you can send to our team.</p>
+                <form id="contact-form" class="form" novalidate method="POST" action="mailto:info@clarityhealthclinic.co.za" enctype="text/plain" aria-label="Contact form">
+                    <div class="form-row">
+                        <label for="c-name">Name</label>
+                        <input type="text" id="c-name" name="name" required minlength="2" maxlength="60" autocomplete="name">
+                        <span class="field-error" id="c-name-error" role="alert"></span>
+                    </div>
+                    <div class="form-row">
+                        <label for="c-email">Email</label>
+                        <input type="email" id="c-email" name="email" required autocomplete="email">
+                        <span class="field-error" id="c-email-error" role="alert"></span>
+                    </div>
+                    <div class="form-row">
+                        <label for="c-phone">Phone (optional)</label>
+                        <input type="tel" id="c-phone" name="phone" placeholder="021 555 0123" autocomplete="tel">
+                        <span class="field-error" id="c-phone-error" role="alert"></span>
+                    </div>
+                    <div class="form-row">
+                        <label for="c-type">Type of message</label>
+                        <select id="c-type" name="message_type" required>
+                            <option value="">Select...</option>
+                            <option value="general">General enquiry</option>
+                            <option value="appointment">Appointment booking</option>
+                            <option value="feedback">Feedback or compliment</option>
+                            <option value="complaint">Complaint</option>
+                        </select>
+                        <span class="field-error" id="c-type-error" role="alert"></span>
+                    </div>
+                    <div class="form-row">
+                        <label for="c-message">Message</label>
+                        <textarea id="c-message" name="message" rows="5" required minlength="10" maxlength="500"></textarea>
+                        <span class="field-error" id="c-message-error" role="alert"></span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Prepare email</button>
+                    </div>
+                    <p id="contact-status" class="form-status" role="status" aria-live="polite"></p>
+
+                    <div id="email-preview" class="email-preview" hidden>
+                        <h4>Your email</h4>
+                        <p><strong>To:</strong> <span id="preview-to"></span></p>
+                        <p><strong>Subject:</strong> <span id="preview-subject"></span></p>
+                        <pre id="preview-body"></pre>
+                        <a id="send-email" class="btn-primary" href="#">Send email</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <nav class="socials" aria-label="Social media">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+        <p>&copy; 2026 Clarity Health Clinic. All rights reserved.</p>
+        <p>Student: Dulce Da Silva | ST10531158 | WEDE5020 POE</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

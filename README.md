@@ -1,118 +1,58 @@
-# Clarity Health Clinic Website
+# Clarity Health Clinic
 
-## Project Title
-WEDE5020 – Website Development Portfolio of Evidence (POE)
-Clarity Health Clinic Website Project
+Multi-page website for a primary healthcare clinic in Claremont, Cape Town.
+Student: Dulce Da Silva | ST10531158 | WEDE5020 POE (Part 3)
 
-## Student Information
-- **Name:** Dulce Da Silva
-- **Student Number:** ST10531158
-- **Module:** WEDE5020 – Web Development
-- **Institution:** Rosebank College (The IIE), Claremont Campus
+**Live site:** https://clarity-health-clinic.netlify.app
+**Repository:** https://github.com/YOUR-USERNAME/YOUR-REPO
 
-## Overview
-This project involves designing and building a 5-page website for Clarity Health Clinic, a healthcare clinic based in Claremont, Cape Town. The site aims to make it easier for patients to learn about the clinic's services and get in touch.
+## Pages
 
-## Goals and Objectives
-- Increase visibility of Clarity Health Clinic in the Claremont community
-- Make it easy for patients to find services and contact information
-- Provide a professional, accessible online presence
+| File | Purpose |
+|------|---------|
+| `index.html` | Home: hero, services, health tips (dynamic), gallery with lightbox |
+| `about.html` | Who we are |
+| `service.html` | Dynamic services list with search, category filter and sorting |
+| `enquiry.html` | Login + enquiry form (services, volunteering, sponsorship) |
+| `contact.html` | General contact form compiled into an email |
 
-## Features
-- Responsive 5-page website (Home, About, Services, Enquiry, Contact)
-- Semantic HTML5 structure
-- External CSS styling (Part 2)
-- JavaScript form validation, animations, Google Maps embed, SEO meta tags (Part 3)
+## Part 3 features
 
-## Sitemap
+### JavaScript and interactivity
+- CSS and JS animations: fade-up reveal on scroll, button ripple, hero parallax, SVG underline.
+- Advanced DOM manipulation: elements created with `createElement`, organisation fields toggled, results rendered dynamically.
+- Dynamic content: services and health tips are loaded by JavaScript (`script.js`).
+- Search, filter and sort on the services page.
+- Gallery with lightbox (keyboard: Esc, left and right arrows).
 
-## Student Information
-- **Name:** Dulce Da Silva
-- **Student Number:** ST10531158
-- **Module:** WEDE5020 – Web Development
-- **Institution:** Rosebank College (The IIE), Claremont Campus
+### SEO
+- On-page: unique `<title>` and meta description per page, keywords, one `<h1>` per page with `h2`/`h3` hierarchy, descriptive image file names and alt text, clean URLs, internal linking, mobile-friendly responsive layout.
+- Off-page: social media links and Open Graph tags, local SEO via `MedicalClinic` JSON-LD (Claremont, Cape Town).
+- `robots.txt` and `sitemap.xml` included.
+- Page speed: lazy-loaded images with width/height, `defer` scripts, preconnect, long-term caching via `_headers`.
+- Security: `_headers` (X-Frame-Options, nosniff, HSTS, Referrer-Policy), `rel="noopener noreferrer"` on external links, no `innerHTML` with user input.
 
-## Overview
-<!-- TODO: 2-3 sentence summary of the project: which organisation, what problem, what the site will do -->
-[Short project overview goes here.]
+### Forms
+- **enquiry.html**: HTML5 attributes + JavaScript validation (email, SA phone number, date, min and max length), inline error messages, AJAX submission with `fetch`, and a processed response showing cost and availability (or volunteering and sponsorship info for NPOs).
+- **contact.html**: validated form that compiles the data into an email (`mailto:`) addressed to the clinic; the visitor reviews and sends it.
 
-## Goals and Objectives
-<!-- TODO: Copy/summarise from your approved Proposal -->
-- [Goal 1]
-- [Goal 2]
-- [Goal 3]
+## Setup notes
+1. Replace `YOUR_FORM_ID` in the enquiry form `action` with a real Formspree form ID.
+2. The clinic email is set in `script.js` (`CLINIC_EMAIL`) and in the contact form `action`.
 
-## Features
-- Responsive 5-page website (Home, About, Services, Enquiry, Contact)
-- Semantic HTML5 structure
-- External CSS styling (Part 2)
-- JavaScript form validation, animations, Google Maps embed, SEO meta tags (Part 3)
-
-## Sitemap
-```
-Home (index.html)
-├── About (about.html)
-├── Services (services.html)
-├── Enquiry (enquiry.html)
-└── Contact (contact.html)
-```
-
-## File Structure
-```
-/
-├── index.html
-├── about.html
-├── services.html
-├── enquiry.html
-├── contact.html
-├── css/
-│   └── style.css        (added in Part 2)
-├── js/
-│   └── script.js         (added in Part 3)
-└── images/
-```
-
-## Timeline
-<!-- TODO: Copy from your Proposal timeline -->
-| Milestone | Date |
-|---|---|
-| Proposal submitted | [date] |
-| HTML structure complete | [date] |
-| CSS styling complete | [date] |
-| JavaScript & SEO complete | [date] |
-| Final submission | [date] |
+## Deployment
+Deployed on Netlify from the `main` branch (Add new site > Import from Git).
 
 ## Changelog
-<!-- Update this every time you make a meaningful commit -->
-- [Date] – Initial folder structure and 5 HTML skeleton pages created
-- [Date] – Added navigation and semantic structure to all pages
-- [Date] – ...
+See the Changelog in the POE document. Summary of Part 3:
+- Added `script.js` (animations, dynamic content, search/sort, lightbox, validation, AJAX).
+- Added `extra.css`, `robots.txt`, `sitemap.xml`, `_headers`.
+- Rebuilt `enquiry.html` and `contact.html` with validated forms.
+- Added SEO meta tags, Open Graph and JSON-LD to every page.
+- Fixed the image path and moved the script tag inside `<body>`.
 
 ## References
-<!-- Harvard style, alphabetical order. Add every source used for text/images. -->
-- [Author, Year. Title. Available at: URL (Accessed: date).]
-Mozilla Developer Network (2024) The Form element. Available at: <link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form (Accessed: 18 September 2026).</link>
-
-Nielsen Norman Group (2021) Login form design: 9 UX guidelines. Available at: <lik https://www.nngroup.com/articles/login-form/ (Accessed: 18 September 2026).</link>
-
-Unsplash (2026) License. Available at: <link https://unsplash.com/license (Accessed: 18 September 2026).</link>
-
-W3Schools (2024) HTML forms. Available at: <link  https://www.w3schools.com/html/html_forms.asp (Accessed: 18 September 2026).</link>
-
-World Wide Web Consortium (2023) Web content accessibility guidelines (WCAG) 2.2. Available at: <link https://www.w3.org/TR/WCAG22/ (Accessed: 18 September 2026).</link>
-Mozilla Developer Network (2024) The Form element. Available at: <linl https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form (Accessed: 18 September 2026).
-
-Nielsen Norman Group (2021) Login form design: 9 UX guidelines. Available at: https://www.nngroup.com/articles/login-form/ (Accessed: 18 September 2026).
-
-Unsplash (2026) License. Available at: <link https://unsplash.com/license (Accessed: 18 September 2026).
-
-W3Schools (2024) HTML forms. Available at: <link https://www.w3schools.com/html/html_forms.asp (Accessed: 18 September 2026).
-
-World Wide Web Consortium (2023) Web content accessibility guidelines (WCAG) 2.2. Available at:<link https://www.w3.org/TR/WCAG22/ (Accessed: 18 September 2026).
-
-## Changelog (Part 3)
-- Fixed layout and styling issues based on Part 2 feedback.
-- Added JavaScript form validation to both contact and enquiry forms.
-- Implemented SEO best practices (Meta descriptions, keywords).
-- Created robots.txt and sitemap.xml files.
-- Optimized website loading speed.
+- MDN Web Docs. HTML forms, Constraint validation, Fetch API, IntersectionObserver.
+- Google Search Central. SEO starter guide, robots.txt and sitemap documentation.
+- Schema.org. MedicalClinic.
+- Unsplash. Photography used under the Unsplash licence.

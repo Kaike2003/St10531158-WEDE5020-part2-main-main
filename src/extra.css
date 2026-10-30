@@ -1,0 +1,170 @@
+/* ==========================================================
+   extra.css - forms, services, gallery, lightbox, utilities
+   (link AFTER style.css; replaces the previous extra.css)
+   ========================================================== */
+
+.skip-link { position: absolute; left: -9999px; top: 0; background: #fff; color: var(--primary-dark); padding: 8px 14px; z-index: 10001; border-radius: 0 0 8px 8px; font-weight: 700; }
+.skip-link:focus { left: 10px; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+	outline: 3px solid var(--star);
+	outline-offset: 2px;
+}
+
+[hidden] { display: none !important; }
+
+.btn-secondary {
+	display: inline-block; background: #fff; color: var(--primary-dark);
+	padding: 9px 18px; border-radius: 12px; font-weight: 700; border: 0; cursor: pointer;
+	transition: background .2s ease, transform .18s ease;
+}
+.btn-secondary:hover { background: var(--secondary); transform: translateY(-2px); }
+
+.header-phone { color: #fff; font-weight: 700; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+.nav-links a[aria-current="page"] { background: rgba(255, 255, 255, 0.2); }
+
+button.btn-primary { border: 0; cursor: pointer; font-size: 1rem; font-family: inherit; }
+
+.muted { color: var(--muted); margin-bottom: 12px; }
+
+/* ---------- Forms ---------- */
+.two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 24px; align-items: start; }
+
+.form-card {
+	background: var(--card);
+	padding: clamp(18px, 3vw, 28px);
+	border-radius: 22px;
+	border: 1px solid var(--line);
+	box-shadow: var(--shadow-soft);
+}
+.form-card h2, .form-card h3 { color: var(--primary-dark); margin-bottom: 6px; }
+.form-card h2 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
+
+.form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+
+.form-row label { display: block; margin-bottom: 6px; color: var(--primary-dark); font-weight: 600; font-size: .95rem; }
+
+/* 16px font prevents iOS zoom; 46px min height = comfortable touch target */
+.form-row input:not([type="checkbox"]), .form-row select, .form-row textarea {
+	width: 100%;
+	min-height: 46px;
+	padding: 10px 14px;
+	border-radius: 12px;
+	border: 1px solid #cfd9de;
+	background: #fff;
+	font: inherit;
+	font-size: 1rem;
+	color: var(--text);
+	transition: border-color .2s ease, box-shadow .2s ease;
+}
+.form-row textarea { min-height: 120px; resize: vertical; }
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+	border-color: var(--primary);
+	box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+	outline: none;
+}
+.form-row input[aria-invalid="true"], .form-row select[aria-invalid="true"], .form-row textarea[aria-invalid="true"] {
+	border-color: #b91c1c; background: #fef2f2;
+}
+
+.field-error { display: block; color: #b91c1c; font-size: .88rem; min-height: 1.1em; margin-top: 4px; }
+
+.checks { display: flex; gap: 10px 20px; flex-wrap: wrap; margin-top: 6px; }
+.checks label { display: flex; align-items: center; gap: 8px; font-weight: 400; margin: 0; cursor: pointer; }
+.checks input { width: 20px; height: 20px; accent-color: var(--primary); }
+
+.form-actions { display: flex; gap: 12px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
+.form-status { margin-top: 10px; font-weight: 700; }
+.form-status.ok { color: #166534; }
+.form-status.err { color: #b91c1c; }
+
+.result-box, .email-preview {
+	margin-top: 16px; padding: 16px 18px; border-radius: 14px;
+	background: var(--accent); border: 1px solid var(--primary-light);
+}
+.result-box h4, .email-preview h4 { color: var(--primary-dark); margin-bottom: 6px; }
+.result-box p { margin-bottom: 4px; }
+.email-preview pre { white-space: pre-wrap; word-break: break-word; font-family: inherit; color: var(--text); margin: 8px 0 12px; }
+
+.contact-list { list-style: none; display: grid; gap: 10px; margin-top: 10px; }
+.contact-list a { color: var(--primary); font-weight: 700; word-break: break-word; }
+
+.page-hero-small { padding: clamp(18px, 3vw, 30px); }
+
+/* ---------- Services: search / filter / sort ---------- */
+.toolbar { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 14px; margin-bottom: 10px; }
+.toolbar label { display: block; font-weight: 700; color: var(--primary-dark); font-size: .9rem; margin-bottom: 4px; }
+.toolbar input, .toolbar select {
+	width: 100%; min-height: 46px; padding: 10px 14px; border-radius: 12px;
+	border: 1px solid #cfd9de; font: inherit; font-size: 1rem; background: #fff;
+}
+.toolbar input:focus, .toolbar select:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12); outline: none; }
+
+.results-count { color: var(--muted); margin: 8px 0 16px; font-weight: 600; }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.services-grid .card { height: 100%; }
+.services-grid .card .btn-primary { align-self: flex-start; }
+
+.service-meta { display: flex; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 12px; font-weight: 700; color: var(--primary-dark); font-size: .95rem; }
+.tag {
+	align-self: flex-start;
+	background: var(--secondary); color: var(--primary-dark);
+	padding: 3px 12px; border-radius: 999px; font-size: .74rem; font-weight: 700;
+	text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px;
+}
+.empty-state { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 30px; }
+
+/* ---------- Health tips (dynamic) ---------- */
+.tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.tip { background: var(--accent); border: 1px solid var(--line); border-left: 4px solid var(--primary-light); border-radius: 14px; padding: 16px 18px; }
+.tip h4 { color: var(--primary-dark); margin-bottom: 6px; }
+.tip p { color: var(--muted); font-size: .95rem; }
+
+/* ---------- Gallery + lightbox ---------- */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+
+.gallery-item {
+	border: 0; padding: 0; background: none; cursor: zoom-in;
+	border-radius: 16px; overflow: hidden; position: relative;
+	transition: transform .25s ease, box-shadow .25s ease;
+}
+.gallery-item:hover { transform: scale(1.03); box-shadow: 0 16px 32px rgba(31, 41, 55, 0.18); }
+
+/* Equal 4:3 thumbnails, cropped neatly */
+.gallery-item img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .4s ease; }
+.gallery-item:hover img { transform: scale(1.06); }
+
+.lightbox {
+	position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9);
+	display: flex; align-items: center; justify-content: center;
+	z-index: 20000; opacity: 0; pointer-events: none; transition: opacity .25s ease; padding: 16px;
+}
+.lightbox.open { opacity: 1; pointer-events: auto; }
+.lightbox figure { max-width: 94vw; max-height: 90vh; text-align: center; margin: 0; }
+.lightbox img { max-width: 94vw; max-height: 78vh; width: auto; height: auto; object-fit: contain; border-radius: 12px; margin: 0 auto; }
+.lightbox figcaption { color: #fff; margin-top: 10px; font-size: .95rem; }
+.lightbox button {
+	position: absolute; background: rgba(255, 255, 255, 0.16); color: #fff; border: 0;
+	font-size: 2rem; line-height: 1; width: 48px; height: 48px; border-radius: 50%; cursor: pointer;
+	transition: background .2s ease;
+}
+.lightbox button:hover { background: rgba(255, 255, 255, 0.32); }
+.lb-close { top: 16px; right: 16px; }
+.lb-prev { left: 12px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 12px; top: 50%; transform: translateY(-50%); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+	.two-col { grid-template-columns: 1fr; }
+	.toolbar { grid-template-columns: 1fr 1fr; }
+	.toolbar > div:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+	.toolbar { grid-template-columns: 1fr; }
+	.services-grid { grid-template-columns: 1fr; }
+	.gallery { grid-template-columns: 1fr 1fr; gap: 10px; }
+	.form-actions .btn-primary { width: 100%; }
+	.lb-prev, .lb-next { width: 40px; height: 40px; font-size: 1.6rem; }
+}

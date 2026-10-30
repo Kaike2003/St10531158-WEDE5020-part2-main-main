@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry &amp; Login | Clarity Health Clinic Cape Town</title>
+    <meta name="description" content="Enquire about services, costs and availability at Clarity Health Clinic, or ask about volunteering and sponsorship. Login to manage your appointments.">
+    <meta name="keywords" content="clinic enquiry, book appointment Cape Town, volunteer, sponsor, Claremont clinic">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://clarity-health-clinic.netlify.app/enquiry.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="extra.css">
+    <link rel="icon" href="clinic-mark.svg" type="image/svg+xml">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="site-header fixed-header">
+        <div class="brand">
+            <a href="index.html" class="logo" aria-label="Clarity Health Clinic home">
+                <span class="logo-mark" aria-hidden="true">CH</span>
+                <span class="brand-name">Clarity Health Clinic</span>
+            </a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="about.html">Who we are</a>
+                <a href="service.html">Find care</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="tel:+27215550123" class="header-phone" aria-label="Call Clarity Health Clinic">
+                    <span class="phone-emoji" aria-hidden="true">📞</span>
+                    <span class="phone-number">+27 21 555 0123</span>
+                </a>
+                <a href="index.html" class="btn-ghost">Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell" id="main">
+        <section class="hero page-hero-small">
+            <div class="hero-copy animate-fadeUp animate-onload">
+                <span class="badge">Get in touch</span>
+                <h1>Login or send an enquiry</h1>
+                <p>Access your booking and ask about services, costs and availability.</p>
+            </div>
+            <div class="hero-panel">
+                <img src="/public/img/medicos.webp" alt="Clarity Health Clinic team" class="hero-image" width="600" height="400" loading="lazy">
+            </div>
+        </section>
+
+        <section class="two-col">
+            <!-- LOGIN -->
+            <div class="form-card">
+                <h2>Login to your account</h2>
+                <p class="muted">Enter your credentials to view appointments and messages.</p>
+                <form id="login-form" class="form" novalidate aria-label="Login form">
+                    <div class="form-row">
+                        <label for="login-email">Email</label>
+                        <input id="login-email" name="email" type="email" required autocomplete="email">
+                        <span class="field-error" id="login-email-error" role="alert"></span>
+                    </div>
+                    <div class="form-row">
+                        <label for="login-password">Password</label>
+                        <input id="login-password" name="password" type="password" required minlength="6" autocomplete="current-password">
+                        <span class="field-error" id="login-password-error" role="alert"></span>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-primary" type="submit">Login</button>
+                        <a href="#" class="btn-ghost" style="color:var(--primary-dark);border-color:var(--line)">Forgot password?</a>
+                    </div>
+                    <p id="login-status" class="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+
+            <!-- ENQUIRY -->
+            <div class="form-card">
+                <h2>Send an enquiry</h2>
+                <p class="muted">Ask about a service or tell us how you would like to help. You get an instant response on cost and availability.</p>
+                <form id="enquiry-form" class="form" novalidate method="POST" action="https://formspree.io/f/YOUR_FORM_ID" aria-label="Enquiry form">
+                    <div class="form-row">
+                        <label for="fullname">Full name</label>
+                        <input id="fullname" name="name" type="text" required minlength="2" maxlength="60" autocomplete="name">
+                        <span class="field-error" id="fullname-error" role="alert"></span>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Email address</label>
+                        <input id="email" name="email" type="email" required autocomplete="email">
+                        <span class="field-error" id="email-error" role="alert"></span>
+                    </div>
+                    <div class="form-row">
+                        <label for="phone">Phone (optional)</label>
+                        <input id="phone" name="phone" type="tel" placeholder="021 555 0123" autocomplete="tel">
+                        <span class="field-error" id="phone-error" role="alert"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="contact-as">Contacting as</label>
+                        <select id="contact-as" name="contact_as">
+                            <option value="individual">Individual</option>
+                            <option value="organization">Organization</option>
+                        </select>
+                        <span class="field-error" id="contact-as-error"></span>
+                    </div>
+
+                    <div id="org-fields" hidden>
+                        <div class="form-row">
+                            <label for="org-name">Organization name</label>
+                            <input id="org-name" name="org_name" type="text" maxlength="80">
+                            <span class="field-error" id="org-name-error" role="alert"></span>
+                        </div>
+                        <div class="form-row">
+                            <label for="org-type">Organization type</label>
+                            <select id="org-type" name="org_type">
+                                <option value="npo">NPO / Non-profit</option>
+                                <option value="business">Business / For-profit</option>
+                            </select>
+                            <span class="field-error" id="org-type-error"></span>
+                        </div>
+                        <div id="npo-actions" class="form-row" hidden>
+                            <label>For NPOs: I'm interested in</label>
+                            <div class="checks">
+                                <label><input id="enquire-volunteer" name="volunteer" type="checkbox"> Enquire about volunteering</label>
+                                <label><input id="become-sponsor" name="sponsor" type="checkbox"> Become a sponsor</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="service">Service of interest</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service...</option>
+                        </select>
+                        <span class="field-error" id="service-error" role="alert"></span>
+                    </div>
+                    <div class="form-row">
+                        <label for="pref-date">Preferred date</label>
+                        <input id="pref-date" name="preferred_date" type="date">
+                        <span class="field-error" id="pref-date-error" role="alert"></span>
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500"></textarea>
+                        <span class="field-error" id="message-error" role="alert"></span>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-primary" type="submit">Send enquiry</button>
+                    </div>
+                    <p id="enquiry-status" class="form-status" role="status" aria-live="polite"></p>
+                    <div id="enquiry-result" class="result-box" hidden></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <nav class="socials" aria-label="Social media">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+        <p>&copy; 2026 Clarity Health Clinic. All rights reserved.</p>
+        <p>Student: Dulce Da Silva | ST10531158 | WEDE5020 POE</p>
+        <div class="trust-row">
+            <div class="trust-stars" aria-hidden="true">★★★★★</div>
+            <div>Trusted since 2015 — 10,000+ patients</div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
